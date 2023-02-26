@@ -131,7 +131,7 @@ public class MyFirstController {
 	// 3.5 endpoint koji predstavlja englesko-srpski rečnik 
 	// i koji za reč na srpskom vrati odgovarajući prevod na engleski jezik
 	// putanja /recnik
-	// DODATNO: ukoliko za traženu reč ne postoji prevod, ispisati „Reč trazena_rec ne postoji u recniku.“
+	// TODO: ukoliko za traženu reč ne postoji prevod, ispisati „Reč trazena_rec ne postoji u recniku.“
 	@RequestMapping("/recnik")
 	public Map<String, String> getDict() {
 		Map<String, String> dict = new HashMap();

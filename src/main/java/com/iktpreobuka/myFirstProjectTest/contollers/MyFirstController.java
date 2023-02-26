@@ -66,7 +66,6 @@ public class MyFirstController {
 		myFamily.add("ПЂ");
 		myFamily.add("МС");
 		myFamily.add("ВС");
-
 		return myFamily;
 	}
 
@@ -99,7 +98,7 @@ public class MyFirstController {
 	}
 
 	// 3.2 endpoint koji vraća sortiran niz celobrojnih vrednosti
-	// putanja /sortarray
+	// putanja /sortArray
 	@RequestMapping("/sortNiz")
 	public int[] sortNiz() {
 		int[] niz2 = { 5, 4, 7, 44, 21, 13 };
@@ -109,15 +108,30 @@ public class MyFirstController {
 
 	// 3.3 endpoint koji vraća minimalnu i maksimalnu vrednost iz niza celobrojnih vrednosti
 	// putanja /minmax
+	@RequestMapping("/minmax")
+	public Integer[] getMinMax() {
+		Integer[] array = {2, 4, 6, 7, 13, 17, 19, 23, 37};
+		Arrays.sort(array);
+		Integer[] minmax = {array[0], array[array.length-1]};
+		return minmax;
+	}
 
 	// 3.4 endpoint koji vraća sumu prvih n brojeva
 	// putanja /sumaNiza
+	@RequestMapping("/sumaNiza")
+	public int getSumaNiza() {
+		Integer[] array = {2, 4, 6, 7, 13, 17, 19, 23, 37};
+		int suma = 0;
+		for (Integer integer : array) {
+			suma += integer;
+		}
+		return suma;
+	}
 
 	// 3.5 endpoint koji predstavlja englesko-srpski rečnik 
 	// i koji za reč na srpskom vrati odgovarajući prevod na engleski jezik
 	// putanja /recnik
-	// DODATNO: ukoliko za traženu reč ne postoji prevod, 
-	// ispisati „tražena_rec ne postoji u recniku.“
+	// DODATNO: ukoliko za traženu reč ne postoji prevod, ispisati „Reč trazena_rec ne postoji u recniku.“
 	@RequestMapping("/recnik")
 	public Map<String, String> getDict() {
 		Map<String, String> dict = new HashMap();
